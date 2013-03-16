@@ -66,7 +66,7 @@ var main = function(){
 
     register_hook("AFTER_PRINTFEED", function(){
         var subids = JSON.parse(localStorage.getItem("title_only_subids")) || {};
-        Control.title_only(subids[get_active_feed().subscribe_id]);
+        Control.title_only(!!subids[get_active_feed().subscribe_id]);
     });
 };
 
