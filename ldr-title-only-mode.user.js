@@ -26,6 +26,10 @@ GM_addStyle(".title_only .item .item_info," +
 
             ".title_only .padding {" +
             "    border: none !important;" +
+            "}" +
+
+            ".title_only .item .last {" +
+            "    2px solid #A5C5FF !important;" +
             "}");
 
 var main = function(){
