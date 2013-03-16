@@ -10,7 +10,7 @@ Livedoor Readerでタイトルだけ流し読みするためのユーザース�
     <td>![default image](http://vzvu3k6k.tk/memo/img/ldr-title-only-mode-default.png)</td>
   </tr>
   <tr>
-    <th>After</th></tr>
+    <th>After</th>
     <td>![demo image](http://vzvu3k6k.tk/memo/img/ldr-title-only-mode-custom.png)</td>
   </tr>
 </dl>
