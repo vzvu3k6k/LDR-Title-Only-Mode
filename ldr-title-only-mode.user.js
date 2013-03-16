@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        LDR Title Only Mode
 // @description Livedoor reader: press "t" to hide everything but titles
-// @version     1.0
+// @version     1.1
 // @namespace   http://www.vzvu3k6k.tk/
 // @homepage    https://github.com/vzvu3k6k/LDR-Title-Only-Mode
 // @match       http://reader.livedoor.com/reader/*
