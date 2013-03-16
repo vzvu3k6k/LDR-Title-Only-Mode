@@ -36,26 +36,30 @@ var main = function(){
 
         /* if(mode === undefined) -> toggle
            if(mode == true)       -> title_only_mode on
-           if(mode == false)      -> title_only_mode off */
-        Control.title_only = function(mode){
+           if(mode == false)      -> title_only_mode off
+           if(quiet == true)      -> doesn't show a message */
+        Control.title_only = function(mode, quiet){
             var subids = JSON.parse(localStorage.getItem("title_only_subids")) || {};
-	        var o = get_active_feed();
+            var item = get_active_item();
+            var feed = get_active_feed();
 
             if(mode !== undefined){
-	            (mode ? addClass : removeClass)("right_body", "title_only");
+                (mode ? addClass : removeClass)("right_body", "title_only");
             }else{
                 toggleClass("right_body", "title_only");
             }
 
-	        if(contain($("right_body").className, "title_only")){
-		        message("タイトル以外を非表示にしました。" + TITLE_ONLY_KEY + "で元に戻ります");
-                subids[o.subscribe_id] = 1;
-	        }else{
-		        message("タイトル以外の非表示を解除しました。" + TITLE_ONLY_KEY + "で非表示に戻ります");
-                delete subids[o.subscribe_id];
-	        }
+            if(contain($("right_body").className, "title_only")){
+                if(!quiet)
+                    message("タイトル以外を非表示にしました。" + TITLE_ONLY_KEY + "で元に戻ります");
+                subids[feed.subscribe_id] = 1;
+            }else{
+                if(!quiet)
+                    message("タイトル以外の非表示を解除しました。" + TITLE_ONLY_KEY + "で非表示に戻ります");
+                delete subids[feed.subscribe_id];
+            }
 
-	        Control.scroll_to_offset(o);
+            Control.scroll_to_offset(item);
             localStorage.setItem("title_only_subids", Object.toJSON(subids));
         };
 
@@ -66,7 +70,7 @@ var main = function(){
 
     register_hook("AFTER_PRINTFEED", function(){
         var subids = JSON.parse(localStorage.getItem("title_only_subids")) || {};
-        Control.title_only(!!subids[get_active_feed().subscribe_id]);
+        Control.title_only(!!subids[get_active_feed().subscribe_id], true);
     });
 };
 
