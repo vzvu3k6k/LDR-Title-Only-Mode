@@ -49,7 +49,7 @@ var main = function(){
 
 	        if(contain($("right_body").className, "title_only")){
 		        message("タイトル以外を非表示にしました。" + TITLE_ONLY_KEY + "で元に戻ります");
-                subids[o.subscribe_id] = true;
+                subids[o.subscribe_id] = 1;
 	        }else{
 		        message("タイトル以外の非表示を解除しました。" + TITLE_ONLY_KEY + "で非表示に戻ります");
                 delete subids[o.subscribe_id];
